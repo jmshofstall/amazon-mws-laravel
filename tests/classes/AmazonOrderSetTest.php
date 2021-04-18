@@ -1,7 +1,7 @@
 <?php
 
-use KeithBrink\AmazonMws\AmazonOrderList;
-use KeithBrink\AmazonMws\AmazonOrderSet;
+use Jmshofstall\AmazonMws\AmazonOrderList;
+use Jmshofstall\AmazonMws\AmazonOrderSet;
 use PHPUnit\Framework\TestCase;
 
 /**

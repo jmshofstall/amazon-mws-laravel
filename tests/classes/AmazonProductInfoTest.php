@@ -1,6 +1,6 @@
 <?php
 
-use KeithBrink\AmazonMws\AmazonProductInfo;
+use Jmshofstall\AmazonMws\AmazonProductInfo;
 use PHPUnit\Framework\TestCase;
 
 /**

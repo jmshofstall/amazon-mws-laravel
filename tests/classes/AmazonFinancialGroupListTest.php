@@ -1,6 +1,6 @@
 <?php
 
-use KeithBrink\AmazonMws\AmazonFinancialGroupList;
+use Jmshofstall\AmazonMws\AmazonFinancialGroupList;
 use PHPUnit\Framework\TestCase;
 
 class AmazonFinancialGroupListTest extends TestCase

@@ -1,6 +1,6 @@
 <?php
 
-use KeithBrink\AmazonMws\AmazonPackageTracker;
+use Jmshofstall\AmazonMws\AmazonPackageTracker;
 use PHPUnit\Framework\TestCase;
 
 /**

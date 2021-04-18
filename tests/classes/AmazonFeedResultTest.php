@@ -1,6 +1,6 @@
 <?php
 
-use KeithBrink\AmazonMws\AmazonFeedResult;
+use Jmshofstall\AmazonMws\AmazonFeedResult;
 use PHPUnit\Framework\TestCase;
 
 /**

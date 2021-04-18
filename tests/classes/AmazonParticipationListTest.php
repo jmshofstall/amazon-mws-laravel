@@ -1,6 +1,6 @@
 <?php
 
-use KeithBrink\AmazonMws\AmazonParticipationList;
+use Jmshofstall\AmazonMws\AmazonParticipationList;
 use PHPUnit\Framework\TestCase;
 
 /**

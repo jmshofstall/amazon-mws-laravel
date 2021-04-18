@@ -1,6 +1,6 @@
 <?php
 
-use KeithBrink\AmazonMws\AmazonProductFeeEstimate;
+use Jmshofstall\AmazonMws\AmazonProductFeeEstimate;
 use PHPUnit\Framework\TestCase;
 
 class AmazonProductFeeEstimateTest extends TestCase

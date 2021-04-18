@@ -1,6 +1,6 @@
 <?php
 
-namespace KeithBrink\AmazonMws;
+namespace Jmshofstall\AmazonMws;
 
 /**
  * Copyright 2013 CPI Group, LLC.

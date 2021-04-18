@@ -1,6 +1,6 @@
 <?php
 
-use KeithBrink\AmazonMws\AmazonFeedList;
+use Jmshofstall\AmazonMws\AmazonFeedList;
 use PHPUnit\Framework\TestCase;
 
 /**

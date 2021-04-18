@@ -1,6 +1,6 @@
 <?php
 
-use KeithBrink\AmazonMws\AmazonReportScheduleManager;
+use Jmshofstall\AmazonMws\AmazonReportScheduleManager;
 use PHPUnit\Framework\TestCase;
 
 /**

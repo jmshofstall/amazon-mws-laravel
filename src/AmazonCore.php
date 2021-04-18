@@ -1,6 +1,6 @@
 <?php
 
-namespace KeithBrink\AmazonMws;
+namespace Jmshofstall\AmazonMws;
 
 use Config;
 use Exception;

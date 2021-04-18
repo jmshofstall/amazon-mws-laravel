@@ -1,6 +1,6 @@
 <?php
 
-use KeithBrink\AmazonMws\AmazonTransportDocument;
+use Jmshofstall\AmazonMws\AmazonTransportDocument;
 use PHPUnit\Framework\TestCase;
 
 class AmazonTransportDocumentTest extends TestCase

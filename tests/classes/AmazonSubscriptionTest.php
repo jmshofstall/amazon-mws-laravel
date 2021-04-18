@@ -1,6 +1,6 @@
 <?php
 
-use KeithBrink\AmazonMws\AmazonSubscription;
+use Jmshofstall\AmazonMws\AmazonSubscription;
 use PHPUnit\Framework\TestCase;
 
 class AmazonSubscriptionTest extends TestCase

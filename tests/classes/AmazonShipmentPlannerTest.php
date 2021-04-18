@@ -1,6 +1,6 @@
 <?php
 
-use KeithBrink\AmazonMws\AmazonShipmentPlanner;
+use Jmshofstall\AmazonMws\AmazonShipmentPlanner;
 use PHPUnit\Framework\TestCase;
 
 /**

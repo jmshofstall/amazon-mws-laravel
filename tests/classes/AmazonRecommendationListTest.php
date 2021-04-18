@@ -1,6 +1,6 @@
 <?php
 
-use KeithBrink\AmazonMws\AmazonRecommendationList;
+use Jmshofstall\AmazonMws\AmazonRecommendationList;
 use PHPUnit\Framework\TestCase;
 
 class AmazonRecommendationListTest extends TestCase

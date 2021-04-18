@@ -1,6 +1,6 @@
 <?php
 
-use KeithBrink\AmazonMws\AmazonReportRequestList;
+use Jmshofstall\AmazonMws\AmazonReportRequestList;
 use PHPUnit\Framework\TestCase;
 
 /**

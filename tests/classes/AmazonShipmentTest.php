@@ -1,7 +1,7 @@
 <?php
 
-use KeithBrink\AmazonMws\AmazonShipment;
-use KeithBrink\AmazonMws\AmazonShipmentPlanner;
+use Jmshofstall\AmazonMws\AmazonShipment;
+use Jmshofstall\AmazonMws\AmazonShipmentPlanner;
 use PHPUnit\Framework\TestCase;
 
 /**

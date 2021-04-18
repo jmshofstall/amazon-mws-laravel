@@ -1,6 +1,6 @@
 <?php
 
-use KeithBrink\AmazonMws\AmazonServiceStatus;
+use Jmshofstall\AmazonMws\AmazonServiceStatus;
 use PHPUnit\Framework\TestCase;
 
 /**

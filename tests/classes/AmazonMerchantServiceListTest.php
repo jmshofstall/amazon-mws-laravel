@@ -1,7 +1,7 @@
 <?php
 
-use KeithBrink\AmazonMws\AmazonMerchantServiceList;
-use KeithBrink\AmazonMws\AmazonMerchantShipmentCreator;
+use Jmshofstall\AmazonMws\AmazonMerchantServiceList;
+use Jmshofstall\AmazonMws\AmazonMerchantShipmentCreator;
 use PHPUnit\Framework\TestCase;
 
 class AmazonMerchantServiceListTest extends TestCase

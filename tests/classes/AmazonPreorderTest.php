@@ -1,6 +1,6 @@
 <?php
 
-use KeithBrink\AmazonMws\AmazonPreorder;
+use Jmshofstall\AmazonMws\AmazonPreorder;
 use PHPUnit\Framework\TestCase;
 
 class AmazonPreorderTest extends TestCase

@@ -1,6 +1,6 @@
 <?php
 
-use KeithBrink\AmazonMws\AmazonFinancialEventList;
+use Jmshofstall\AmazonMws\AmazonFinancialEventList;
 use PHPUnit\Framework\TestCase;
 
 class AmazonFinancialEventListTest extends TestCase

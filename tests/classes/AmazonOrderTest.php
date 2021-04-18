@@ -1,6 +1,6 @@
 <?php
 
-use KeithBrink\AmazonMws\AmazonOrder;
+use Jmshofstall\AmazonMws\AmazonOrder;
 use PHPUnit\Framework\TestCase;
 
 /**
