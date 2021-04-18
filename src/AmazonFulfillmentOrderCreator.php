@@ -238,17 +238,17 @@ class AmazonFulfillmentOrderCreator extends AmazonOutboundCore
         $this->resetAddress();
         $this->options['DestinationAddress.Name'] = $a['Name'];
         $this->options['DestinationAddress.Line1'] = $a['Line1'];
-        if (array_key_exists('Line2', $a)) {
+        if (property_exists($a, 'Line2')) {
             $this->options['DestinationAddress.Line2'] = $a['Line2'];
         } else {
             $this->options['DestinationAddress.Line2'] = null;
         }
-        if (array_key_exists('Line3', $a)) {
+        if (property_exists($a, 'Line3')) {
             $this->options['DestinationAddress.Line3'] = $a['Line3'];
         } else {
             $this->options['DestinationAddress.Line3'] = null;
         }
-        if (array_key_exists('DistrictOrCounty', $a)) {
+        if (property_exists($a, 'DistrictOrCounty')) {
             $this->options['DestinationAddress.DistrictOrCounty'] = $a['DistrictOrCounty'];
         } else {
             $this->options['DestinationAddress.DistrictOrCounty'] = null;
@@ -257,7 +257,7 @@ class AmazonFulfillmentOrderCreator extends AmazonOutboundCore
         $this->options['DestinationAddress.StateOrProvinceCode'] = $a['StateOrProvinceCode'];
         $this->options['DestinationAddress.CountryCode'] = $a['CountryCode'];
         $this->options['DestinationAddress.PostalCode'] = $a['PostalCode'];
-        if (array_key_exists('PhoneNumber', $a)) {
+        if (property_exists($a, 'PhoneNumber')) {
             $this->options['DestinationAddress.PhoneNumber'] = $a['PhoneNumber'];
         } else {
             $this->options['DestinationAddress.PhoneNumber'] = null;
@@ -435,27 +435,24 @@ class AmazonFulfillmentOrderCreator extends AmazonOutboundCore
         $this->resetItems();
         $i = 1;
         foreach ($a as $x) {
-            if (is_array($x) && array_key_exists('SellerSKU', $x) && array_key_exists(
-                'SellerFulfillmentOrderItemId',
-                $x
-            ) && array_key_exists('Quantity', $x)
+            if (is_array($x) && property_exists($x, 'SellerSKU') && property_exists($x, 'SellerFulfillmentOrderItemId') && property_exists($x, 'Quantity')
             ) {
                 $this->options['Items.member.'.$i.'.SellerSKU'] = $x['SellerSKU'];
                 $this->options['Items.member.'.$i.'.SellerFulfillmentOrderItemId'] = $x['SellerFulfillmentOrderItemId'];
                 $this->options['Items.member.'.$i.'.Quantity'] = $x['Quantity'];
-                if (array_key_exists('GiftMessage', $x)) {
+                if (property_exists($x, 'GiftMessage')) {
                     $this->options['Items.member.'.$i.'.GiftMessage'] = $x['GiftMessage'];
                 }
-                if (array_key_exists('Comment', $x)) {
+                if (property_exists($x, 'Comment')) {
                     $this->options['Items.member.'.$i.'.DisplayableComment'] = $x['Comment'];
                 }
-                if (array_key_exists('FulfillmentNetworkSKU', $x)) {
+                if (property_exists($x, 'FulfillmentNetworkSKU')) {
                     $this->options['Items.member.'.$i.'.FulfillmentNetworkSKU'] = $x['FulfillmentNetworkSKU'];
                 }
-                if (array_key_exists('OrderItemDisposition', $x)) {
+                if (property_exists($x, 'OrderItemDisposition')) {
                     $this->options['Items.member.'.$i.'.OrderItemDisposition'] = $x['OrderItemDisposition'];
                 }
-                if (array_key_exists('PerUnitDeclaredValue', $x)) {
+                if (property_exists($x, 'PerUnitDeclaredValue')) {
                     $this->options['Items.member.'.$i.'.PerUnitDeclaredValue.CurrencyCode'] = $x['PerUnitDeclaredValue']['CurrencyCode'];
                     $this->options['Items.member.'.$i.'.PerUnitDeclaredValue.Value'] = $x['PerUnitDeclaredValue']['Value'];
                 }
@@ -500,37 +497,37 @@ class AmazonFulfillmentOrderCreator extends AmazonOutboundCore
      */
     public function createOrder()
     {
-        if (! array_key_exists('SellerFulfillmentOrderId', $this->options)) {
+        if (! property_exists($this->options, 'SellerFulfillmentOrderId')) {
             $this->log('Seller Fulfillment OrderID must be set in order to create an order', 'Warning');
 
             return false;
         }
-        if (! array_key_exists('DisplayableOrderId', $this->options)) {
+        if (! property_exists($this->options, 'DisplayableOrderId')) {
             $this->log('Displayable Order ID must be set in order to create an order', 'Warning');
 
             return false;
         }
-        if (! array_key_exists('DisplayableOrderDateTime', $this->options)) {
+        if (! property_exists($this->options, 'DisplayableOrderDateTime')) {
             $this->log('Date must be set in order to create an order', 'Warning');
 
             return false;
         }
-        if (! array_key_exists('DisplayableOrderComment', $this->options)) {
+        if (! property_exists($this->options, 'DisplayableOrderComment')) {
             $this->log('Comment must be set in order to create an order', 'Warning');
 
             return false;
         }
-        if (! array_key_exists('ShippingSpeedCategory', $this->options)) {
+        if (! property_exists($this->options, 'ShippingSpeedCategory')) {
             $this->log('Shipping Speed must be set in order to create an order', 'Warning');
 
             return false;
         }
-        if (! array_key_exists('DestinationAddress.Name', $this->options)) {
+        if (! property_exists($this->options, 'DestinationAddress.Name')) {
             $this->log('Address must be set in order to create an order', 'Warning');
 
             return false;
         }
-        if (! array_key_exists('Items.member.1.SellerSKU', $this->options)) {
+        if (! property_exists($this->options, 'Items.member.1.SellerSKU')) {
             $this->log('Items must be set in order to create an order', 'Warning');
 
             return false;

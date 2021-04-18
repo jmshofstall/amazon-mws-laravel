@@ -103,7 +103,7 @@ class AmazonOrder extends AmazonOrderCore
      */
     public function fetchOrder()
     {
-        if (! array_key_exists('AmazonOrderId.Id.1', $this->options)) {
+        if (! property_exists($this->options, 'AmazonOrderId.Id.1')) {
             $this->log('Order ID must be set in order to fetch it!', 'Warning');
 
             return false;

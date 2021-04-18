@@ -153,7 +153,7 @@ class AmazonReportAcknowledger extends AmazonReportsCore implements \Iterator
      */
     public function acknowledgeReports()
     {
-        if (! array_key_exists('ReportIdList.Id.1', $this->options)) {
+        if (! property_exists($this->options, 'ReportIdList.Id.1')) {
             $this->log('Report IDs must be set in order to acknowledge reports!', 'Warning');
 
             return false;

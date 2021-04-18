@@ -111,7 +111,7 @@ class AmazonPreorder extends AmazonInboundCore
      */
     public function fetchPreorderInfo()
     {
-        if (! array_key_exists('ShipmentId', $this->options)) {
+        if (! property_exists($this->options, 'ShipmentId')) {
             $this->log('Shipment ID must be set in order to get preorder info!', 'Warning');
 
             return false;
@@ -165,12 +165,12 @@ class AmazonPreorder extends AmazonInboundCore
      */
     public function confirmPreorder()
     {
-        if (! array_key_exists('ShipmentId', $this->options)) {
+        if (! property_exists($this->options, 'ShipmentId')) {
             $this->log('Shipment ID must be set in order to confirm preorder info!', 'Warning');
 
             return false;
         }
-        if (! array_key_exists('NeedByDate', $this->options)) {
+        if (! property_exists($this->options, 'NeedByDate')) {
             $this->log('NeedByDate must be set in order to confirm preorder info!', 'Warning');
 
             return false;

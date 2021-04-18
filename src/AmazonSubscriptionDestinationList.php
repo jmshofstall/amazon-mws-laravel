@@ -44,7 +44,7 @@ class AmazonSubscriptionDestinationList extends AmazonSubscriptionCore implement
      */
     public function fetchDestinations()
     {
-        if (! array_key_exists('MarketplaceId', $this->options)) {
+        if (! property_exists($this->options, 'MarketplaceId')) {
             $this->log('Marketplace ID must be set in order to fetch subscription destinations!', 'Warning');
 
             return false;

@@ -216,12 +216,12 @@ abstract class AmazonCore
      */
     protected function fetchMockFile($load = true)
     {
-        if (! is_array($this->mockFiles) || ! array_key_exists(0, $this->mockFiles)) {
+        if (! is_array($this->mockFiles) || ! property_exists($this->mockFiles, 0)) {
             $this->log('Attempted to retrieve mock files, but no mock files present', 'Warning');
 
             return false;
         }
-        if (! array_key_exists($this->mockIndex, $this->mockFiles)) {
+        if (! property_exists($this->mockFiles, $this->mockIndex)) {
             $this->log('End of Mock List, resetting to 0');
             $this->resetMock();
         }
@@ -294,12 +294,12 @@ abstract class AmazonCore
      */
     protected function fetchMockResponse()
     {
-        if (! is_array($this->mockFiles) || ! array_key_exists(0, $this->mockFiles)) {
+        if (! is_array($this->mockFiles) || ! property_exists($this->mockFiles, 0)) {
             $this->log('Attempted to retrieve mock responses, but no mock responses present', 'Warning');
 
             return false;
         }
-        if (! array_key_exists($this->mockIndex, $this->mockFiles)) {
+        if (! property_exists($this->mockFiles, $this->mockIndex)) {
             $this->log('End of Mock List, resetting to 0');
             $this->resetMock();
         }
@@ -369,7 +369,7 @@ abstract class AmazonCore
      */
     protected function checkResponse($r)
     {
-        if (! is_array($r) || ! array_key_exists('code', $r)) {
+        if (! is_array($r) || ! property_exists($r, 'code')) {
             $this->log('No Response found', 'Warning');
 
             return false;
@@ -420,7 +420,7 @@ abstract class AmazonCore
     {
         $store = Config::get('amazon-mws.store');
 
-        if ($store && array_key_exists($s, $store)) {
+        if ($store && property_exists($store, $s)) {
             if ($this->validateAndSetConfig($store[$s])) {
                 $this->storeName = $s;
             } else {
@@ -434,40 +434,40 @@ abstract class AmazonCore
     public function validateAndSetConfig($config)
     {
         $valid = true;
-        if (array_key_exists('merchantId', $config) && $config['merchantId']) {
+        if (property_exists($config, 'merchantId') && $config['merchantId']) {
             $this->options['SellerId'] = $config['merchantId'];
         } else {
             $valid = false;
             $this->log('Merchant ID is missing!', 'Warning');
         }
-        if (array_key_exists('marketplaceId', $config) && $config['marketplaceId']) {
+        if (property_exists($config, 'marketplaceId') && $config['marketplaceId']) {
             $this->options['MarketplaceId'] = $config['marketplaceId'];
         } else {
             $valid = false;
             $this->log('Marketplace ID is missing!', 'Warning');
         }
-        if (array_key_exists('keyId', $config) && $config['keyId']) {
+        if (property_exists($config, 'keyId') && $config['keyId']) {
             $this->options['AWSAccessKeyId'] = $config['keyId'];
         } else {
             $valid = false;
             $this->log('Access Key ID is missing!', 'Warning');
         }
-        if (array_key_exists('secretKey', $config) && $config['secretKey']) {
+        if (property_exists($config, 'secretKey') && $config['secretKey']) {
             $this->secretKey = $config['secretKey'];
         } else {
             $valid = false;
             $this->log('Secret Key is missing!', 'Warning');
         }
-        if (array_key_exists('amazonServiceUrl', $config) && $config['amazonServiceUrl']) {
+        if (property_exists($config, 'amazonServiceUrl') && $config['amazonServiceUrl']) {
             $this->urlbase = $config['amazonServiceUrl'];
         } else {
             $valid = false;
             $this->log('Service URL is missing!', 'Warning');
         }
-        if (array_key_exists('mwsAuthToken', $config) && $config['mwsAuthToken']) {
+        if (property_exists($config, 'mwsAuthToken') && $config['mwsAuthToken']) {
             $this->options['MWSAuthToken'] = $config['mwsAuthToken'];
         }
-        if (array_key_exists('muteLog', $config) && $config['muteLog']) {
+        if (property_exists($config, 'muteLog') && $config['muteLog']) {
             $this->muteLog = $config['muteLog'];
         }
 
@@ -621,7 +621,7 @@ abstract class AmazonCore
         $this->throttleCount = 0;
         $response = $this->fetchURL($url, $param);
 
-        if (! isset($response['code']) || ! array_key_exists('code', $response)) {
+        if (! isset($response['code']) || ! property_exists($response, 'code')) {
             $this->log('Unrecognized response: '.print_r($response, true));
 
             return;
@@ -684,7 +684,7 @@ abstract class AmazonCore
             $i = count($this->rawResponses) - 1;
         }
         if ($i >= 0 && isset($this->rawResponses[$i])) {
-            if (array_key_exists('body', $this->rawResponses[$i])) {
+            if (property_exists($this->rawResponses[$i], 'body')) {
                 $xml = simplexml_load_string($this->rawResponses[$i]['body'])->Error;
 
                 return array_change_key_case((array) $xml);
@@ -921,7 +921,7 @@ abstract class AmazonCore
         $endpoint = parse_url($this->urlbase.$this->urlbranch);
         $data .= $endpoint['host'];
         $data .= "\n";
-        $uri = array_key_exists('path', $endpoint) ? $endpoint['path'] : null;
+        $uri = property_exists($endpoint, 'path') ? $endpoint['path'] : null;
         if (! isset($uri)) {
             $uri = '/';
         }

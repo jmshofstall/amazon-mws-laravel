@@ -159,14 +159,14 @@ class AmazonPrepInfo extends AmazonInboundCore implements Iterator
      */
     public function fetchPrepInstructions()
     {
-        if (! array_key_exists('SellerSKUList.Id.1', $this->options) &&
-                ! array_key_exists('ASINList.Id.1', $this->options)) {
+        if (! property_exists($this->options, 'SellerSKUList.Id.1') &&
+                ! property_exists($this->options, 'ASINList.Id.1')) {
             $this->log('Product IDs must be set in order to get prep instructions!', 'Warning');
 
             return false;
         }
 
-        if (! array_key_exists('ShipToCountryCode', $this->options)) {
+        if (! property_exists($this->options, 'ShipToCountryCode')) {
             $this->log('Country Code must be set in order to get prep instructions!', 'Warning');
 
             return false;
@@ -204,10 +204,10 @@ class AmazonPrepInfo extends AmazonInboundCore implements Iterator
         $this->prepList = [];
         $this->invalidList = [];
         $this->rewind();
-        if (array_key_exists('SellerSKUList.Id.1', $this->options)) {
+        if (property_exists($this->options, 'SellerSKUList.Id.1')) {
             $this->options['Action'] = 'GetPrepInstructionsForSKU';
             $this->resetASINs();
-        } elseif (array_key_exists('ASINList.Id.1', $this->options)) {
+        } elseif (property_exists($this->options, 'ASINList.Id.1')) {
             $this->options['Action'] = 'GetPrepInstructionsForASIN';
             $this->resetSKUs();
         }

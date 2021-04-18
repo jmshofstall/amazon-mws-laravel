@@ -475,7 +475,7 @@ class AmazonInventoryList extends AmazonInventoryCore implements \Iterator
         if (! isset($this->supplyList)) {
             return false;
         }
-        if (is_int($i) && array_key_exists('EarliestAvailability', $this->supplyList[$i])) {
+        if (is_int($i) && property_exists($this->supplyList[$i], 'EarliestAvailability')) {
             return $this->supplyList[$i]['EarliestAvailability'];
         } else {
             return false;
@@ -499,7 +499,7 @@ class AmazonInventoryList extends AmazonInventoryCore implements \Iterator
         if (! isset($this->supplyList)) {
             return false;
         }
-        if (is_int($i) && array_key_exists('SupplyDetail', $this->supplyList[$i])) {
+        if (is_int($i) && property_exists($this->supplyList[$i], 'SupplyDetail')) {
             if (is_numeric($j)) {
                 return $this->supplyList[$i]['SupplyDetail'][$j];
             } else {
@@ -525,7 +525,7 @@ class AmazonInventoryList extends AmazonInventoryCore implements \Iterator
         if (! isset($this->supplyList)) {
             return false;
         }
-        if (is_int($i) && is_numeric($j) && array_key_exists('SupplyDetail', $this->supplyList[$i])) {
+        if (is_int($i) && is_numeric($j) && property_exists($this->supplyList[$i], 'SupplyDetail')) {
             return $this->supplyList[$i]['SupplyDetail'][$j]['EarliestAvailableToPick'];
         } else {
             return false;
@@ -547,7 +547,7 @@ class AmazonInventoryList extends AmazonInventoryCore implements \Iterator
         if (! isset($this->supplyList)) {
             return false;
         }
-        if (is_int($i) && is_numeric($j) && array_key_exists('SupplyDetail', $this->supplyList[$i])) {
+        if (is_int($i) && is_numeric($j) && property_exists($this->supplyList[$i], 'SupplyDetail')) {
             return $this->supplyList[$i]['SupplyDetail'][$j]['LatestAvailableToPick'];
         } else {
             return false;
@@ -569,7 +569,7 @@ class AmazonInventoryList extends AmazonInventoryCore implements \Iterator
         if (! isset($this->supplyList)) {
             return false;
         }
-        if (is_int($i) && is_numeric($j) && array_key_exists('SupplyDetail', $this->supplyList[$i])) {
+        if (is_int($i) && is_numeric($j) && property_exists($this->supplyList[$i], 'SupplyDetail')) {
             return $this->supplyList[$i]['SupplyDetail'][$j]['Quantity'];
         } else {
             return false;
@@ -591,7 +591,7 @@ class AmazonInventoryList extends AmazonInventoryCore implements \Iterator
         if (! isset($this->supplyList)) {
             return false;
         }
-        if (is_int($i) && is_numeric($j) && array_key_exists('SupplyDetail', $this->supplyList[$i])) {
+        if (is_int($i) && is_numeric($j) && property_exists($this->supplyList[$i], 'SupplyDetail')) {
             return $this->supplyList[$i]['SupplyDetail'][$j]['SupplyType'];
         } else {
             return false;

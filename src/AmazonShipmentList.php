@@ -254,10 +254,9 @@ class AmazonShipmentList extends AmazonInboundCore implements \Iterator
      */
     public function fetchShipments($r = true)
     {
-        if (! array_key_exists(
-            'ShipmentStatusList.member.1',
-            $this->options
-        ) && ! array_key_exists('ShipmentIdList.member.1', $this->options)
+        if (! property_exists(
+            $this->options, 'ShipmentStatusList.member.1'
+        ) && ! property_exists($this->options, 'ShipmentIdList.member.1')
         ) {
             $this->log('Either status filter or ID filter must be set before requesting a list!', 'Warning');
 

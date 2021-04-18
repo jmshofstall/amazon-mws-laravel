@@ -129,7 +129,7 @@ class AmazonOrderSet extends AmazonOrderCore implements \Iterator
      */
     public function fetchOrders()
     {
-        if (! array_key_exists('AmazonOrderId.Id.1', $this->options)) {
+        if (! property_exists($this->options, 'AmazonOrderId.Id.1')) {
             $this->log('Order IDs must be set in order to fetch them!', 'Warning');
 
             return false;

@@ -153,7 +153,7 @@ class AmazonProductSearch extends AmazonProductsCore
      */
     public function searchProducts()
     {
-        if (! array_key_exists('Query', $this->options)) {
+        if (! property_exists($this->options, 'Query')) {
             $this->log('Search Query must be set in order to search for a query!', 'Warning');
 
             return false;

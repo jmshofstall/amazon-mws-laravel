@@ -166,12 +166,12 @@ class AmazonTransportDocument extends AmazonInboundCore
      */
     public function fetchPackageLabels()
     {
-        if (! array_key_exists('ShipmentId', $this->options)) {
+        if (! property_exists($this->options, 'ShipmentId')) {
             $this->log('ShipmentId must be set in order to get package labels!', 'Warning');
 
             return false;
         }
-        if (! array_key_exists('PackageLabelsToPrint.member.1', $this->options)) {
+        if (! property_exists($this->options, 'PackageLabelsToPrint.member.1')) {
             $this->log('Package IDs must be set in order to get package labels!', 'Warning');
 
             return false;
@@ -226,7 +226,7 @@ class AmazonTransportDocument extends AmazonInboundCore
      */
     public function fetchPackageLabelsOldMethod()
     {
-        if (! array_key_exists('ShipmentId', $this->options)) {
+        if (! property_exists($this->options, 'ShipmentId')) {
             $this->log('ShipmentId must be set in order to get package labels!', 'Warning');
 
             return false;
@@ -281,12 +281,12 @@ class AmazonTransportDocument extends AmazonInboundCore
      */
     public function fetchPalletLabels()
     {
-        if (! array_key_exists('ShipmentId', $this->options)) {
+        if (! property_exists($this->options, 'ShipmentId')) {
             $this->log('ShipmentId must be set in order to get pallet labels!', 'Warning');
 
             return false;
         }
-        if (! array_key_exists('NumberOfPallets', $this->options)) {
+        if (! property_exists($this->options, 'NumberOfPallets')) {
             $this->log('Number of pallets must be set in order to get pallet labels!', 'Warning');
 
             return false;
@@ -340,7 +340,7 @@ class AmazonTransportDocument extends AmazonInboundCore
      */
     public function fetchBillOfLading()
     {
-        if (! array_key_exists('ShipmentId', $this->options)) {
+        if (! property_exists($this->options, 'ShipmentId')) {
             $this->log('ShipmentId must be set in order to get a bill of lading!', 'Warning');
 
             return false;

@@ -169,12 +169,12 @@ class AmazonReportScheduleManager extends AmazonReportsCore implements \Iterator
      */
     public function manageReportSchedule()
     {
-        if (! array_key_exists('ReportType', $this->options)) {
+        if (! property_exists($this->options, 'ReportType')) {
             $this->log('Report Type must be set in order to manage a report schedule!', 'Warning');
 
             return false;
         }
-        if (! array_key_exists('Schedule', $this->options)) {
+        if (! property_exists($this->options, 'Schedule')) {
             $this->log('Schedule must be set in order to manage a report schedule!', 'Warning');
 
             return false;

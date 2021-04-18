@@ -651,17 +651,17 @@ class AmazonTransport extends AmazonInboundCore
     {
         $m = ' must be set in order to send transport content!';
         //common requirements
-        if (! array_key_exists('ShipmentId', $this->options)) {
+        if (! property_exists($this->options, 'ShipmentId')) {
             $this->log('Shipment ID'.$m, 'Warning');
 
             return false;
         }
-        if (! array_key_exists('IsPartnered', $this->options)) {
+        if (! property_exists($this->options, 'IsPartnered')) {
             $this->log('IsPartnered'.$m, 'Warning');
 
             return false;
         }
-        if (! array_key_exists('ShipmentType', $this->options)) {
+        if (! property_exists($this->options, 'ShipmentType')) {
             $this->log('Shipment type'.$m, 'Warning');
 
             return false;
@@ -745,7 +745,7 @@ class AmazonTransport extends AmazonInboundCore
      */
     public function fetchTransportContent()
     {
-        if (! array_key_exists('ShipmentId', $this->options)) {
+        if (! property_exists($this->options, 'ShipmentId')) {
             $this->log('Shipment ID must be set in order to get transport contents!', 'Warning');
 
             return false;
@@ -801,7 +801,7 @@ class AmazonTransport extends AmazonInboundCore
      */
     public function estimateTransport()
     {
-        if (! array_key_exists('ShipmentId', $this->options)) {
+        if (! property_exists($this->options, 'ShipmentId')) {
             $this->log('Shipment ID must be set in order to estimate the transport request!', 'Warning');
 
             return false;
@@ -857,7 +857,7 @@ class AmazonTransport extends AmazonInboundCore
      */
     public function confirmTransport()
     {
-        if (! array_key_exists('ShipmentId', $this->options)) {
+        if (! property_exists($this->options, 'ShipmentId')) {
             $this->log('Shipment ID must be set in order to confirm the transport request!', 'Warning');
 
             return false;
@@ -913,7 +913,7 @@ class AmazonTransport extends AmazonInboundCore
      */
     public function voidTransport()
     {
-        if (! array_key_exists('ShipmentId', $this->options)) {
+        if (! property_exists($this->options, 'ShipmentId')) {
             $this->log('Shipment ID must be set in order to void the transport request!', 'Warning');
 
             return false;

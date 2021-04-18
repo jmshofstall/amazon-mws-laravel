@@ -125,9 +125,9 @@ class AmazonProduct extends AmazonProductsCore
                         }
                     } else {
                         //Check for duplicates
-                        if (array_key_exists('AttributeSets', $this->data) &&
-                            array_key_exists($anum, $this->data['AttributeSets']) &&
-                            array_key_exists($x->getName(), $this->data['AttributeSets'][$anum])
+                        if (property_exists($this->data, 'AttributeSets') &&
+                            property_exists($this->data['AttributeSets'], $anum) &&
+                            property_exists($this->data['AttributeSets'][$anum], $x->getName())
                         ) {
 
                             //check for previous cases of duplicates

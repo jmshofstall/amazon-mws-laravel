@@ -498,38 +498,38 @@ class AmazonMerchantServiceList extends AmazonMerchantCore implements Iterator
      */
     public function fetchServices()
     {
-        if (! array_key_exists('ShipmentRequestDetails.AmazonOrderId', $this->options)) {
+        if (! property_exists($this->options, 'ShipmentRequestDetails.AmazonOrderId')) {
             $this->log('Amazon Order ID must be set in order to fetch a service list', 'Warning');
 
             return false;
         }
-        if (! array_key_exists('ShipmentRequestDetails.ItemList.Item.1.OrderItemId', $this->options)) {
+        if (! property_exists($this->options, 'ShipmentRequestDetails.ItemList.Item.1.OrderItemId')) {
             $this->log('Items must be set in order to fetch a service list', 'Warning');
 
             return false;
         }
-        if (! array_key_exists('ShipmentRequestDetails.ShipFromAddress.Name', $this->options)) {
+        if (! property_exists($this->options, 'ShipmentRequestDetails.ShipFromAddress.Name')) {
             $this->log('Shipping Address must be set in order to fetch a service list', 'Warning');
 
             return false;
         }
-        if (! array_key_exists('ShipmentRequestDetails.PackageDimensions.Length', $this->options) &&
-                ! array_key_exists('ShipmentRequestDetails.PackageDimensions.PredefinedPackageDimensions', $this->options)) {
+        if (! property_exists($this->options, 'ShipmentRequestDetails.PackageDimensions.Length') &&
+                ! property_exists($this->options, 'ShipmentRequestDetails.PackageDimensions.PredefinedPackageDimensions')) {
             $this->log('Package Dimensions must be set in order to fetch a service list', 'Warning');
 
             return false;
         }
-        if (! array_key_exists('ShipmentRequestDetails.Weight.Value', $this->options)) {
+        if (! property_exists($this->options, 'ShipmentRequestDetails.Weight.Value')) {
             $this->log('Weight must be set in order to fetch a service list', 'Warning');
 
             return false;
         }
-        if (! array_key_exists('ShipmentRequestDetails.ShippingServiceOptions.DeliveryExperience', $this->options)) {
+        if (! property_exists($this->options, 'ShipmentRequestDetails.ShippingServiceOptions.DeliveryExperience')) {
             $this->log('Delivery Experience must be set in order to fetch a service list', 'Warning');
 
             return false;
         }
-        if (! array_key_exists('ShipmentRequestDetails.ShippingServiceOptions.CarrierWillPickUp', $this->options)) {
+        if (! property_exists($this->options, 'ShipmentRequestDetails.ShippingServiceOptions.CarrierWillPickUp')) {
             $this->log('Carrier Pick-Up Option must be set in order to fetch a service list', 'Warning');
 
             return false;

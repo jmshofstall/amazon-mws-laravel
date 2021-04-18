@@ -126,12 +126,12 @@ class AmazonProductList extends AmazonProductsCore implements \Iterator
      */
     public function fetchProductList()
     {
-        if (! array_key_exists('IdList.Id.1', $this->options)) {
+        if (! property_exists($this->options, 'IdList.Id.1')) {
             $this->log('Product IDs must be set in order to fetch them!', 'Warning');
 
             return false;
         }
-        if (! array_key_exists('IdType', $this->options)) {
+        if (! property_exists($this->options, 'IdType')) {
             $this->log('ID Type must be set in order to use the given IDs!', 'Warning');
 
             return false;

@@ -131,7 +131,7 @@ class AmazonShipment extends AmazonInboundCore
 
             return false;
         }
-        if (! array_key_exists('AddressLine1', $a)) {
+        if (! property_exists($a, 'AddressLine1')) {
             $this->resetAddress();
             $this->log('Tried to set address with invalid array', 'Warning');
 
@@ -140,13 +140,13 @@ class AmazonShipment extends AmazonInboundCore
         $this->resetAddress();
         $this->options['InboundShipmentHeader.ShipFromAddress.Name'] = $a['Name'];
         $this->options['InboundShipmentHeader.ShipFromAddress.AddressLine1'] = $a['AddressLine1'];
-        if (array_key_exists('AddressLine2', $a)) {
+        if (property_exists($a, 'AddressLine2')) {
             $this->options['InboundShipmentHeader.ShipFromAddress.AddressLine2'] = $a['AddressLine2'];
         } else {
             $this->options['InboundShipmentHeader.ShipFromAddress.AddressLine2'] = null;
         }
         $this->options['InboundShipmentHeader.ShipFromAddress.City'] = $a['City'];
-        if (array_key_exists('DistrictOrCounty', $a)) {
+        if (property_exists($a, 'DistrictOrCounty')) {
             $this->options['InboundShipmentHeader.ShipFromAddress.DistrictOrCounty'] = $a['DistrictOrCounty'];
         } else {
             $this->options['InboundShipmentHeader.ShipFromAddress.DistrictOrCounty'] = null;
@@ -260,14 +260,14 @@ class AmazonShipment extends AmazonInboundCore
         $caseflag = false;
         $i = 1;
         foreach ($a as $x) {
-            if (is_array($x) && array_key_exists('SellerSKU', $x) && array_key_exists('Quantity', $x)) {
+            if (is_array($x) && property_exists($x, 'SellerSKU') && property_exists($x, 'Quantity')) {
                 $this->options['InboundShipmentItems.member.'.$i.'.SellerSKU'] = $x['SellerSKU'];
                 $this->options['InboundShipmentItems.member.'.$i.'.QuantityShipped'] = $x['Quantity'];
-                if (array_key_exists('QuantityInCase', $x)) {
+                if (property_exists($x, 'QuantityInCase')) {
                     $this->options['InboundShipmentItems.member.'.$i.'.QuantityInCase'] = $x['QuantityInCase'];
                     $caseflag = true;
                 }
-                if (array_key_exists('PrepDetailsList', $x) && is_array($x['PrepDetailsList'])) {
+                if (property_exists($x, 'PrepDetailsList') && is_array($x['PrepDetailsList'])) {
                     $j = 1;
                     foreach ($x['PrepDetailsList'] as $z) {
                         if (! isset($z['PrepInstruction']) || ! isset($z['PrepOwner'])) {
@@ -279,7 +279,7 @@ class AmazonShipment extends AmazonInboundCore
                         $j++;
                     }
                 }
-                if (array_key_exists('ReleaseDate', $x)) {
+                if (property_exists($x, 'ReleaseDate')) {
                     $this->options['InboundShipmentItems.member.'.$i.'.ReleaseDate'] = $this->genTime($x['ReleaseDate']);
                 }
                 $i++;
@@ -375,17 +375,17 @@ class AmazonShipment extends AmazonInboundCore
 
             return false;
         }
-        if (! array_key_exists('InboundShipmentHeader.ShipmentName', $this->options)) {
+        if (! property_exists($this->options, 'InboundShipmentHeader.ShipmentName')) {
             $this->log('Header must be set in order to make a shipment', 'Warning');
 
             return false;
         }
-        if (! array_key_exists('InboundShipmentHeader.ShipFromAddress.Name', $this->options)) {
+        if (! property_exists($this->options, 'InboundShipmentHeader.ShipFromAddress.Name')) {
             $this->log('Address must be set in order to make a shipment', 'Warning');
 
             return false;
         }
-        if (! array_key_exists('InboundShipmentItems.member.1.SellerSKU', $this->options)) {
+        if (! property_exists($this->options, 'InboundShipmentItems.member.1.SellerSKU')) {
             $this->log('Items must be set in order to make a shipment', 'Warning');
 
             return false;
@@ -436,17 +436,17 @@ class AmazonShipment extends AmazonInboundCore
 
             return false;
         }
-        if (! array_key_exists('InboundShipmentHeader.ShipmentName', $this->options)) {
+        if (! property_exists($this->options, 'InboundShipmentHeader.ShipmentName')) {
             $this->log('Header must be set in order to update a shipment', 'Warning');
 
             return false;
         }
-        if (! array_key_exists('InboundShipmentHeader.ShipFromAddress.Name', $this->options)) {
+        if (! property_exists($this->options, 'InboundShipmentHeader.ShipFromAddress.Name')) {
             $this->log('Address must be set in order to update a shipment', 'Warning');
 
             return false;
         }
-        if (! array_key_exists('InboundShipmentItems.member.1.SellerSKU', $this->options)) {
+        if (! property_exists($this->options, 'InboundShipmentItems.member.1.SellerSKU')) {
             $this->log('Items must be set in order to update a shipment', 'Warning');
 
             return false;

@@ -94,7 +94,7 @@ class AmazonFeedResult extends AmazonFeedsCore
      */
     public function fetchFeedResult()
     {
-        if (! array_key_exists('FeedSubmissionId', $this->options)) {
+        if (! property_exists($this->options, 'FeedSubmissionId')) {
             $this->log('Feed Submission ID must be set in order to fetch it!', 'Warning');
 
             return false;

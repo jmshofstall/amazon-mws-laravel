@@ -195,9 +195,8 @@ class AmazonProductInfo extends AmazonProductsCore
      */
     public function fetchCompetitivePricing()
     {
-        if (! array_key_exists('SellerSKUList.SellerSKU.1', $this->options) && ! array_key_exists(
-            'ASINList.ASIN.1',
-            $this->options
+        if (! property_exists($this->options, 'SellerSKUList.SellerSKU.1') && ! property_exists(
+            $this->options, 'ASINList.ASIN.1'
         )
         ) {
             $this->log('Product IDs must be set in order to look them up!', 'Warning');
@@ -243,11 +242,11 @@ class AmazonProductInfo extends AmazonProductsCore
         $this->throttleGroup = 'GetCompetitivePricing';
         unset($this->options['ExcludeMe']);
         unset($this->options['ItemCondition']);
-        if (array_key_exists('SellerSKUList.SellerSKU.1', $this->options)) {
+        if (property_exists($this->options, 'SellerSKUList.SellerSKU.1')) {
             $this->options['Action'] = 'GetCompetitivePricingForSKU';
             $this->resetASINs();
         } else {
-            if (array_key_exists('ASINList.ASIN.1', $this->options)) {
+            if (property_exists($this->options, 'ASINList.ASIN.1')) {
                 $this->options['Action'] = 'GetCompetitivePricingForASIN';
                 $this->resetSKUs();
             }
@@ -265,7 +264,7 @@ class AmazonProductInfo extends AmazonProductsCore
      */
     public function fetchLowestOffer()
     {
-        if (! array_key_exists('SellerSKUList.SellerSKU.1', $this->options) && ! array_key_exists(
+        if (! property_exists($this->options, 'SellerSKUList.SellerSKU.1') && ! property_exists(
             'ASINList.ASIN.1',
             $this->options
         )
@@ -308,11 +307,11 @@ class AmazonProductInfo extends AmazonProductsCore
             $this->throttleTime = $THROTTLE_TIME_PRODUCTPRICE;
         }
         $this->throttleGroup = 'GetLowestOfferListings';
-        if (array_key_exists('SellerSKUList.SellerSKU.1', $this->options)) {
+        if (property_exists($this->options, 'SellerSKUList.SellerSKU.1')) {
             $this->options['Action'] = 'GetLowestOfferListingsForSKU';
             $this->resetASINs();
         } else {
-            if (array_key_exists('ASINList.ASIN.1', $this->options)) {
+            if (property_exists($this->options, 'ASINList.ASIN.1')) {
                 $this->options['Action'] = 'GetLowestOfferListingsForASIN';
                 $this->resetSKUs();
             }
@@ -330,7 +329,7 @@ class AmazonProductInfo extends AmazonProductsCore
      */
     public function fetchMyPrice()
     {
-        if (! array_key_exists('SellerSKUList.SellerSKU.1', $this->options) && ! array_key_exists(
+        if (! property_exists($this->options, 'SellerSKUList.SellerSKU.1') && ! property_exists(
             'ASINList.ASIN.1',
             $this->options
         )
@@ -376,11 +375,11 @@ class AmazonProductInfo extends AmazonProductsCore
         }
         $this->throttleGroup = 'GetMyPrice';
         unset($this->options['ExcludeMe']);
-        if (array_key_exists('SellerSKUList.SellerSKU.1', $this->options)) {
+        if (property_exists($this->options, 'SellerSKUList.SellerSKU.1')) {
             $this->options['Action'] = 'GetMyPriceForSKU';
             $this->resetASINs();
         } else {
-            if (array_key_exists('ASINList.ASIN.1', $this->options)) {
+            if (property_exists($this->options, 'ASINList.ASIN.1')) {
                 $this->options['Action'] = 'GetMyPriceForASIN';
                 $this->resetSKUs();
             }
@@ -398,9 +397,8 @@ class AmazonProductInfo extends AmazonProductsCore
      */
     public function fetchCategories()
     {
-        if (! array_key_exists('SellerSKUList.SellerSKU.1', $this->options) && ! array_key_exists(
-            'ASINList.ASIN.1',
-            $this->options
+        if (! property_exists($this->options, 'SellerSKUList.SellerSKU.1') && ! property_exists(
+            $this->options, 'ASINList.ASIN.1'
         )
         ) {
             $this->log('Product IDs must be set in order to look them up!', 'Warning');
@@ -446,11 +444,11 @@ class AmazonProductInfo extends AmazonProductsCore
         $this->throttleGroup = 'GetProductCategories';
         unset($this->options['ExcludeMe']);
         unset($this->options['ItemCondition']);
-        if (array_key_exists('SellerSKUList.SellerSKU.1', $this->options)) {
+        if (property_exists($this->options, 'SellerSKUList.SellerSKU.1')) {
             $this->options['Action'] = 'GetProductCategoriesForSKU';
             $this->resetASINs();
         } else {
-            if (array_key_exists('ASINList.ASIN.1', $this->options)) {
+            if (property_exists($this->options, 'ASINList.ASIN.1')) {
                 $this->options['Action'] = 'GetProductCategoriesForASIN';
                 $this->resetSKUs();
             }
@@ -467,7 +465,7 @@ class AmazonProductInfo extends AmazonProductsCore
      */
     public function fetchMatchingProduct()
     {
-        if (! array_key_exists('ASINList.ASIN.1', $this->options)) {
+        if (! property_exists($this->options, 'ASINList.ASIN.1')) {
             $this->log('Product IDs must be set in order to look them up!', 'Warning');
 
             return false;
@@ -511,7 +509,7 @@ class AmazonProductInfo extends AmazonProductsCore
         $this->throttleGroup = 'GetMatchingProduct';
         unset($this->options['ExcludeMe']);
         unset($this->options['ItemCondition']);
-        if (array_key_exists('ASINList.ASIN.1', $this->options)) {
+        if (property_exists($this->options, 'ASINList.ASIN.1')) {
             $this->options['Action'] = 'GetMatchingProduct';
             $this->resetSKUs();
         }

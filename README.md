@@ -96,6 +96,9 @@ function sendInventoryFeed($feed) {
 
 ## Credits
 This package was forked from:
+https://github.com/keithbrink/amazon-mws-laravel
+
+which was forked from:
 https://github.com/sonnenglas/amazon-mws-laravel
 
 which was forked from:
