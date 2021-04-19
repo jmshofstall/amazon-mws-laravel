@@ -166,12 +166,12 @@ class AmazonTransportDocument extends AmazonInboundCore
      */
     public function fetchPackageLabels()
     {
-        if (! property_exists($this->options, 'ShipmentId')) {
+        if (! isset($this->options['ShipmentId'])) {
             $this->log('ShipmentId must be set in order to get package labels!', 'Warning');
 
             return false;
         }
-        if (! property_exists($this->options, 'PackageLabelsToPrint.member.1')) {
+        if (! isset($this->options['PackageLabelsToPrint.member.1'])) {
             $this->log('Package IDs must be set in order to get package labels!', 'Warning');
 
             return false;
@@ -226,7 +226,7 @@ class AmazonTransportDocument extends AmazonInboundCore
      */
     public function fetchPackageLabelsOldMethod()
     {
-        if (! property_exists($this->options, 'ShipmentId')) {
+        if (! isset($this->options['ShipmentId'])) {
             $this->log('ShipmentId must be set in order to get package labels!', 'Warning');
 
             return false;
@@ -281,12 +281,12 @@ class AmazonTransportDocument extends AmazonInboundCore
      */
     public function fetchPalletLabels()
     {
-        if (! property_exists($this->options, 'ShipmentId')) {
+        if (! isset($this->options['ShipmentId'])) {
             $this->log('ShipmentId must be set in order to get pallet labels!', 'Warning');
 
             return false;
         }
-        if (! property_exists($this->options, 'NumberOfPallets')) {
+        if (! isset($this->options['NumberOfPallets'])) {
             $this->log('Number of pallets must be set in order to get pallet labels!', 'Warning');
 
             return false;
@@ -340,7 +340,7 @@ class AmazonTransportDocument extends AmazonInboundCore
      */
     public function fetchBillOfLading()
     {
-        if (! property_exists($this->options, 'ShipmentId')) {
+        if (! isset($this->options['ShipmentId'])) {
             $this->log('ShipmentId must be set in order to get a bill of lading!', 'Warning');
 
             return false;

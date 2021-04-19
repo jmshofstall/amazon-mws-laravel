@@ -95,12 +95,12 @@ class AmazonProductFeeEstimate extends AmazonProductsCore implements Iterator
         $this->resetRequests();
         $i = 1;
         foreach ($a as $x) {
-            if (is_array($x) && property_exists($x, 'MarketplaceId') &&
-                    property_exists($x, 'IdType') && property_exists($x, 'IdValue') &&
-                    property_exists($x, 'ListingPrice') && property_exists($x, 'Identifier') &&
-                    property_exists($x, 'IsAmazonFulfilled') && is_array($x['ListingPrice']) &&
-                    property_exists($x['ListingPrice'], 'CurrencyCode') &&
-                    property_exists($x['ListingPrice'], 'Value')) {
+            if (is_array($x) && isset($x['MarketplaceId']) &&
+                    isset($x['IdType']) && isset($x['IdValue']) &&
+                    isset($x['ListingPrice']) && isset($x['Identifier']) &&
+                    isset($x['IsAmazonFulfilled']) && is_array($x['ListingPrice']) &&
+                    isset($x['ListingPrice']['CurrencyCode']) &&
+                    isset($x['ListingPrice']['Value'])) {
                 $this->options['FeesEstimateRequestList.FeesEstimateRequest.'.$i.'.MarketplaceId'] = $x['MarketplaceId'];
                 $this->options['FeesEstimateRequestList.FeesEstimateRequest.'.$i.'.IdType'] = $x['IdType'];
                 $this->options['FeesEstimateRequestList.FeesEstimateRequest.'.$i.'.IdValue'] = $x['IdValue'];
@@ -110,7 +110,7 @@ class AmazonProductFeeEstimate extends AmazonProductsCore implements Iterator
                     $this->options['FeesEstimateRequestList.FeesEstimateRequest.'.$i.'.PriceToEstimateFees.Shipping.CurrencyCode'] = $x['Shipping']['CurrencyCode'];
                     $this->options['FeesEstimateRequestList.FeesEstimateRequest.'.$i.'.PriceToEstimateFees.Shipping.Amount'] = $x['Shipping']['Value'];
                 }
-                if (property_exists($x, 'Points')) {
+                if (isset($x['Points'])) {
                     $this->options['FeesEstimateRequestList.FeesEstimateRequest.'.$i.'.PriceToEstimateFees.Points.PointsNumber'] = $x['Points'];
                 }
                 $this->options['FeesEstimateRequestList.FeesEstimateRequest.'.$i.'.Identifier'] = $x['Identifier'];
@@ -150,7 +150,7 @@ class AmazonProductFeeEstimate extends AmazonProductsCore implements Iterator
      */
     public function fetchEstimates()
     {
-        if (! property_exists($this->options, 'FeesEstimateRequestList.FeesEstimateRequest.1.MarketplaceId')) {
+        if (! isset($this->options['FeesEstimateRequestList.FeesEstimateRequest.1.MarketplaceId'])) {
             $this->log('Fee Requests must be set in order to fetch estimates!', 'Warning');
 
             return false;

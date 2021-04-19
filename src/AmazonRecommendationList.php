@@ -163,7 +163,7 @@ class AmazonRecommendationList extends AmazonRecommendationCore implements Itera
      */
     public function fetchLastUpdateTimes()
     {
-        if (! property_exists($this->options, 'MarketplaceId')) {
+        if (! isset($this->options['MarketplaceId'])) {
             $this->log('Marketplace ID must be set in order to fetch recommendation times!', 'Warning');
 
             return false;
@@ -220,7 +220,7 @@ class AmazonRecommendationList extends AmazonRecommendationCore implements Itera
      */
     public function fetchRecommendations($r = true)
     {
-        if (! property_exists($this->options, 'MarketplaceId')) {
+        if (! isset($this->options['MarketplaceId'])) {
             $this->log('Marketplace ID must be set in order to fetch recommendations!', 'Warning');
 
             return false;

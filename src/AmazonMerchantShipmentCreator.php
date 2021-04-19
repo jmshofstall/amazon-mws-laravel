@@ -595,43 +595,43 @@ class AmazonMerchantShipmentCreator extends AmazonMerchantCore
      */
     public function createShipment()
     {
-        if (! property_exists($this->options, 'ShipmentRequestDetails.AmazonOrderId')) {
+        if (! isset($this->options['ShipmentRequestDetails.AmazonOrderId'])) {
             $this->log('Amazon Order ID must be set in order to create a shipment', 'Warning');
 
             return false;
         }
-        if (! property_exists($this->options, 'ShipmentRequestDetails.ItemList.Item.1.OrderItemId')) {
+        if (! isset($this->options['ShipmentRequestDetails.ItemList.Item.1.OrderItemId'])) {
             $this->log('Items must be set in order to create a shipment', 'Warning');
 
             return false;
         }
-        if (! property_exists($this->options, 'ShipmentRequestDetails.ShipFromAddress.Name')) {
+        if (! isset($this->options['ShipmentRequestDetails.ShipFromAddress.Name'])) {
             $this->log('Shipping Address must be set in order to create a shipment', 'Warning');
 
             return false;
         }
-        if (! property_exists($this->options, 'ShipmentRequestDetails.PackageDimensions.Length') &&
-                ! property_exists($this->options, 'ShipmentRequestDetails.PackageDimensions.PredefinedPackageDimensions')) {
+        if (! isset($this->options['ShipmentRequestDetails.PackageDimensions.Length']) &&
+                ! isset($this->options['ShipmentRequestDetails.PackageDimensions.PredefinedPackageDimensions'])) {
             $this->log('Package Dimensions must be set in order to create a shipment', 'Warning');
 
             return false;
         }
-        if (! property_exists($this->options, 'ShipmentRequestDetails.Weight.Value')) {
+        if (! isset($this->options['ShipmentRequestDetails.Weight.Value'])) {
             $this->log('Weight must be set in order to create a shipment', 'Warning');
 
             return false;
         }
-        if (! property_exists($this->options, 'ShipmentRequestDetails.ShippingServiceOptions.DeliveryExperience')) {
+        if (! isset($this->options['ShipmentRequestDetails.ShippingServiceOptions.DeliveryExperience'])) {
             $this->log('Delivery Experience must be set in order to create a shipment', 'Warning');
 
             return false;
         }
-        if (! property_exists($this->options, 'ShipmentRequestDetails.ShippingServiceOptions.CarrierWillPickUp')) {
+        if (! isset($this->options['ShipmentRequestDetails.ShippingServiceOptions.CarrierWillPickUp'])) {
             $this->log('Carrier Pick-Up Option must be set in order to create a shipment', 'Warning');
 
             return false;
         }
-        if (! property_exists($this->options, 'ShippingServiceId')) {
+        if (! isset($this->options['ShippingServiceId'])) {
             $this->log('Shipping Service must be set in order to create a shipment', 'Warning');
 
             return false;

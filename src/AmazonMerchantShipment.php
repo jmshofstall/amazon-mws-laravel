@@ -92,7 +92,7 @@ class AmazonMerchantShipment extends AmazonMerchantCore
      */
     public function fetchShipment()
     {
-        if (! property_exists($this->options, 'ShipmentId')) {
+        if (! isset($this->options['ShipmentId'])) {
             $this->log('Shipment ID must be set in order to fetch it!', 'Warning');
 
             return false;
@@ -260,7 +260,7 @@ class AmazonMerchantShipment extends AmazonMerchantCore
      */
     public function cancelShipment()
     {
-        if (! property_exists($this->options, 'ShipmentId')) {
+        if (! isset($this->options['ShipmentId'])) {
             $this->log('Shipment ID must be set in order to cancel it!', 'Warning');
 
             return false;

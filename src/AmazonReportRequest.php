@@ -268,7 +268,7 @@ class AmazonReportRequest extends AmazonReportsCore
      */
     public function requestReport()
     {
-        if (! property_exists($this->options, 'ReportType')) {
+        if (! isset($this->options['ReportType'])) {
             $this->log('Report Type must be set in order to request a report!', 'Warning');
 
             return false;

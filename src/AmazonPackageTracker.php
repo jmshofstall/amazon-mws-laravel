@@ -86,7 +86,7 @@ class AmazonPackageTracker extends AmazonOutboundCore
      */
     public function fetchTrackingDetails()
     {
-        if (! property_exists($this->options, 'PackageNumber')) {
+        if (! isset($this->options['PackageNumber'])) {
             $this->log('Package Number must be set in order to fetch it!', 'Warning');
 
             return false;

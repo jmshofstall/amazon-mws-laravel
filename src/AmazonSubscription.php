@@ -172,17 +172,17 @@ class AmazonSubscription extends AmazonSubscriptionCore
      */
     public function registerDestination()
     {
-        if (! property_exists($this->options, 'MarketplaceId')) {
+        if (! isset($this->options['MarketplaceId'])) {
             $this->log('Marketplace ID must be set in order to register a subscription destination!', 'Warning');
 
             return false;
         }
-        if (! property_exists($this->options, 'Destination.DeliveryChannel')) {
+        if (! isset($this->options['Destination.DeliveryChannel'])) {
             $this->log('Delivery channel must be set in order to register a subscription destination!', 'Warning');
 
             return false;
         }
-        if (! property_exists($this->options, 'Destination.AttributeList.member.1.Key')) {
+        if (! isset($this->options['Destination.AttributeList.member.1.Key'])) {
             $this->log('Attributes must be set in order to register a subscription destination!', 'Warning');
 
             return false;
@@ -236,17 +236,17 @@ class AmazonSubscription extends AmazonSubscriptionCore
      */
     public function deregisterDestination()
     {
-        if (! property_exists($this->options, 'MarketplaceId')) {
+        if (! isset($this->options['MarketplaceId'])) {
             $this->log('Marketplace ID must be set in order to deregister a subscription destination!', 'Warning');
 
             return false;
         }
-        if (! property_exists($this->options, 'Destination.DeliveryChannel')) {
+        if (! isset($this->options['Destination.DeliveryChannel'])) {
             $this->log('Delivery channel must be set in order to deregister a subscription destination!', 'Warning');
 
             return false;
         }
-        if (! property_exists($this->options, 'Destination.AttributeList.member.1.Key')) {
+        if (! isset($this->options['Destination.AttributeList.member.1.Key'])) {
             $this->log('Attributes must be set in order to deregister a subscription destination!', 'Warning');
 
             return false;
@@ -300,17 +300,17 @@ class AmazonSubscription extends AmazonSubscriptionCore
      */
     public function testDestination()
     {
-        if (! property_exists($this->options, 'MarketplaceId')) {
+        if (! isset($this->options['MarketplaceId'])) {
             $this->log('Marketplace ID must be set in order to test a subscription destination!', 'Warning');
 
             return false;
         }
-        if (! property_exists($this->options, 'Destination.DeliveryChannel')) {
+        if (! isset($this->options['Destination.DeliveryChannel'])) {
             $this->log('Delivery channel must be set in order to test a subscription destination!', 'Warning');
 
             return false;
         }
-        if (! property_exists($this->options, 'Destination.AttributeList.member.1.Key')) {
+        if (! isset($this->options['Destination.AttributeList.member.1.Key'])) {
             $this->log('Attributes must be set in order to test a subscription destination!', 'Warning');
 
             return false;
@@ -364,27 +364,27 @@ class AmazonSubscription extends AmazonSubscriptionCore
      */
     public function createSubscription()
     {
-        if (! property_exists($this->options, 'MarketplaceId')) {
+        if (! isset($this->options['MarketplaceId'])) {
             $this->log('Marketplace ID must be set in order to create a subscription!', 'Warning');
 
             return false;
         }
-        if (! property_exists($this->options, 'Subscription.Destination.DeliveryChannel')) {
+        if (! isset($this->options['Subscription.Destination.DeliveryChannel'])) {
             $this->log('Delivery channel must be set in order to create a subscription!', 'Warning');
 
             return false;
         }
-        if (! property_exists($this->options, 'Subscription.Destination.AttributeList.member.1.Key')) {
+        if (! isset($this->options['Subscription.Destination.AttributeList.member.1.Key'])) {
             $this->log('Attributes must be set in order to create a subscription!', 'Warning');
 
             return false;
         }
-        if (! property_exists($this->options, 'Subscription.NotificationType')) {
+        if (! isset($this->options['Subscription.NotificationType'])) {
             $this->log('Notification type must be set in order to create a subscription!', 'Warning');
 
             return false;
         }
-        if (! property_exists($this->options, 'Subscription.IsEnabled')) {
+        if (! isset($this->options['Subscription.IsEnabled'])) {
             $this->log('Enabled status must be set in order to create a subscription!', 'Warning');
 
             return false;
@@ -436,22 +436,22 @@ class AmazonSubscription extends AmazonSubscriptionCore
      */
     public function fetchSubscription()
     {
-        if (! property_exists($this->options, 'MarketplaceId')) {
+        if (! isset($this->options['MarketplaceId'])) {
             $this->log('Marketplace ID must be set in order to fetch a subscription!', 'Warning');
 
             return false;
         }
-        if (! property_exists($this->options, 'Destination.DeliveryChannel')) {
+        if (! isset($this->options['Destination.DeliveryChannel'])) {
             $this->log('Delivery channel must be set in order to fetch a subscription!', 'Warning');
 
             return false;
         }
-        if (! property_exists($this->options, 'Destination.AttributeList.member.1.Key')) {
+        if (! isset($this->options['Destination.AttributeList.member.1.Key'])) {
             $this->log('Attributes must be set in order to fetch a subscription!', 'Warning');
 
             return false;
         }
-        if (! property_exists($this->options, 'NotificationType')) {
+        if (! isset($this->options['NotificationType'])) {
             $this->log('Notification type must be set in order to fetch a subscription!', 'Warning');
 
             return false;
@@ -503,27 +503,27 @@ class AmazonSubscription extends AmazonSubscriptionCore
      */
     public function updateSubscription()
     {
-        if (! property_exists($this->options, 'MarketplaceId')) {
+        if (! isset($this->options['MarketplaceId'])) {
             $this->log('Marketplace ID must be set in order to update a subscription!', 'Warning');
 
             return false;
         }
-        if (! property_exists($this->options, 'Subscription.Destination.DeliveryChannel')) {
+        if (! isset($this->options['Subscription.Destination.DeliveryChannel'])) {
             $this->log('Delivery channel must be set in order to update a subscription!', 'Warning');
 
             return false;
         }
-        if (! property_exists($this->options, 'Subscription.Destination.AttributeList.member.1.Key')) {
+        if (! isset($this->options['Subscription.Destination.AttributeList.member.1.Key'])) {
             $this->log('Attributes must be set in order to update a subscription!', 'Warning');
 
             return false;
         }
-        if (! property_exists($this->options, 'Subscription.NotificationType')) {
+        if (! isset($this->options['Subscription.NotificationType'])) {
             $this->log('Notification type must be set in order to update a subscription!', 'Warning');
 
             return false;
         }
-        if (! property_exists($this->options, 'Subscription.IsEnabled')) {
+        if (! isset($this->options['Subscription.IsEnabled'])) {
             $this->log('Enabled status must be set in order to update a subscription!', 'Warning');
 
             return false;
@@ -574,22 +574,22 @@ class AmazonSubscription extends AmazonSubscriptionCore
      */
     public function deleteSubscription()
     {
-        if (! property_exists($this->options, 'MarketplaceId')) {
+        if (! isset($this->options['MarketplaceId'])) {
             $this->log('Marketplace ID must be set in order to delete a subscription!', 'Warning');
 
             return false;
         }
-        if (! property_exists($this->options, 'Destination.DeliveryChannel')) {
+        if (! isset($this->options['Destination.DeliveryChannel'])) {
             $this->log('Delivery channel must be set in order to delete a subscription!', 'Warning');
 
             return false;
         }
-        if (! property_exists($this->options, 'Destination.AttributeList.member.1.Key')) {
+        if (! isset($this->options['Destination.AttributeList.member.1.Key'])) {
             $this->log('Attributes must be set in order to delete a subscription!', 'Warning');
 
             return false;
         }
-        if (! property_exists($this->options, 'NotificationType')) {
+        if (! isset($this->options['NotificationType'])) {
             $this->log('Notification type must be set in order to delete a subscription!', 'Warning');
 
             return false;

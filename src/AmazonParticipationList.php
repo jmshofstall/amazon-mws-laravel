@@ -256,7 +256,7 @@ class AmazonParticipationList extends AmazonSellersCore
         if (! isset($this->marketplaceList)) {
             return false;
         }
-        if (is_numeric($i) && property_exists($this->marketplaceList, $i)) {
+        if (is_numeric($i) && isset($this->marketplaceList[$i])) {
             return $this->marketplaceList[$i]['MarketplaceId'];
         } else {
             return false;
@@ -277,7 +277,7 @@ class AmazonParticipationList extends AmazonSellersCore
         if (! isset($this->marketplaceList)) {
             return false;
         }
-        if (is_numeric($i) && property_exists($this->marketplaceList, $i)) {
+        if (is_numeric($i) && isset($this->marketplaceList[$i])) {
             return $this->marketplaceList[$i]['Name'];
         } else {
             return false;
@@ -298,7 +298,7 @@ class AmazonParticipationList extends AmazonSellersCore
         if (! isset($this->marketplaceList)) {
             return false;
         }
-        if (is_numeric($i) && property_exists($this->marketplaceList, $i)) {
+        if (is_numeric($i) && isset($this->marketplaceList[$i])) {
             return $this->marketplaceList[$i]['Country'];
         } else {
             return false;
@@ -319,7 +319,7 @@ class AmazonParticipationList extends AmazonSellersCore
         if (! isset($this->marketplaceList)) {
             return false;
         }
-        if (is_numeric($i) && property_exists($this->marketplaceList, $i)) {
+        if (is_numeric($i) && isset($this->marketplaceList[$i])) {
             return $this->marketplaceList[$i]['Currency'];
         } else {
             return false;
@@ -340,7 +340,7 @@ class AmazonParticipationList extends AmazonSellersCore
         if (! isset($this->marketplaceList)) {
             return false;
         }
-        if (is_numeric($i) && property_exists($this->marketplaceList, $i)) {
+        if (is_numeric($i) && isset($this->marketplaceList[$i])) {
             return $this->marketplaceList[$i]['Language'];
         } else {
             return false;
@@ -361,7 +361,7 @@ class AmazonParticipationList extends AmazonSellersCore
         if (! isset($this->marketplaceList)) {
             return false;
         }
-        if (is_numeric($i) && property_exists($this->marketplaceList, $i)) {
+        if (is_numeric($i) && isset($this->marketplaceList[$i])) {
             return $this->marketplaceList[$i]['Domain'];
         } else {
             return false;
@@ -382,7 +382,7 @@ class AmazonParticipationList extends AmazonSellersCore
         if (! isset($this->participationList)) {
             return false;
         }
-        if (is_numeric($i) && property_exists($this->participationList, $i)) {
+        if (is_numeric($i) && isset($this->participationList[$i])) {
             return $this->participationList[$i]['SellerId'];
         } else {
             return false;
@@ -403,7 +403,7 @@ class AmazonParticipationList extends AmazonSellersCore
         if (! isset($this->participationList)) {
             return false;
         }
-        if (is_numeric($i) && property_exists($this->participationList, $i)) {
+        if (is_numeric($i) && isset($this->participationList[$i])) {
             return $this->participationList[$i]['Suspended'];
         } else {
             return false;

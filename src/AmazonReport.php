@@ -97,7 +97,7 @@ class AmazonReport extends AmazonReportsCore
      */
     public function fetchReport()
     {
-        if (! property_exists($this->options, 'ReportId')) {
+        if (! isset($this->options['ReportId'])) {
             $this->log('Report ID must be set in order to fetch it!', 'Warning');
 
             return false;

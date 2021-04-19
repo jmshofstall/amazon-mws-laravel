@@ -118,7 +118,7 @@ class AmazonFinancialGroupList extends AmazonFinanceCore implements \Iterator
      */
     public function fetchGroupList($r = true)
     {
-        if (! property_exists($this->options, 'FinancialEventGroupStartedAfter')) {
+        if (! isset($this->options['FinancialEventGroupStartedAfter'])) {
             $this->log('Start date must be set in order to fetch financial event groups', 'Warning');
 
             return false;

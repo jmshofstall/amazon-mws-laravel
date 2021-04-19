@@ -84,18 +84,18 @@ class AmazonShipmentPlanner extends AmazonInboundCore implements \Iterator
         $this->resetAddress();
         $this->options['ShipFromAddress.Name'] = $a['Name'];
         $this->options['ShipFromAddress.AddressLine1'] = $a['AddressLine1'];
-        if (property_exists($a, 'AddressLine2')) {
+        if (isset($a['AddressLine2'])) {
             $this->options['ShipFromAddress.AddressLine2'] = $a['AddressLine2'];
         }
         $this->options['ShipFromAddress.City'] = $a['City'];
-        if (property_exists($a, 'DistrictOrCounty')) {
+        if (isset($a['DistrictOrCounty'])) {
             $this->options['ShipFromAddress.DistrictOrCounty'] = $a['DistrictOrCounty'];
         }
-        if (property_exists($a, 'StateOrProvinceCode')) {
+        if (isset($a['StateOrProvinceCode'])) {
             $this->options['ShipFromAddress.StateOrProvinceCode'] = $a['StateOrProvinceCode'];
         }
         $this->options['ShipFromAddress.CountryCode'] = $a['CountryCode'];
-        if (property_exists($a, 'PostalCode')) {
+        if (isset($a['PostalCode'])) {
             $this->options['ShipFromAddress.PostalCode'] = $a['PostalCode'];
         }
     }
@@ -230,19 +230,19 @@ class AmazonShipmentPlanner extends AmazonInboundCore implements \Iterator
         $this->resetItems();
         $i = 1;
         foreach ($a as $x) {
-            if (property_exists($x, 'SellerSKU') && property_exists($x, 'Quantity')) {
+            if (isset($x['SellerSKU']) && isset($x['Quantity'])) {
                 $this->options['InboundShipmentPlanRequestItems.member.'.$i.'.SellerSKU'] = $x['SellerSKU'];
                 $this->options['InboundShipmentPlanRequestItems.member.'.$i.'.Quantity'] = $x['Quantity'];
-                if (property_exists($x, 'ASIN')) {
+                if (isset($x['ASIN'])) {
                     $this->options['InboundShipmentPlanRequestItems.member.'.$i.'.ASIN'] = $x['ASIN'];
                 }
-                if (property_exists($x, 'QuantityInCase')) {
+                if (isset($x['QuantityInCase'])) {
                     $this->options['InboundShipmentPlanRequestItems.member.'.$i.'.QuantityInCase'] = $x['QuantityInCase'];
                 }
-                if (property_exists($x, 'Condition')) {
+                if (isset($x['Condition'])) {
                     $this->options['InboundShipmentPlanRequestItems.member.'.$i.'.Condition'] = $x['Condition'];
                 }
-                if (property_exists($x, 'PrepDetailsList') && is_array($x['PrepDetailsList'])) {
+                if (isset($x['PrepDetailsList']) && is_array($x['PrepDetailsList'])) {
                     $j = 1;
                     foreach ($x['PrepDetailsList'] as $z) {
                         if (! isset($z['PrepInstruction']) || ! isset($z['PrepOwner'])) {
@@ -291,12 +291,12 @@ class AmazonShipmentPlanner extends AmazonInboundCore implements \Iterator
      */
     public function fetchPlan()
     {
-        if (! property_exists($this->options, 'ShipFromAddress.Name')) {
+        if (! isset($this->options['ShipFromAddress.Name'])) {
             $this->log('Address must be set in order to make a plan', 'Warning');
 
             return false;
         }
-        if (! property_exists($this->options, 'InboundShipmentPlanRequestItems.member.1.SellerSKU')) {
+        if (! isset($this->options['InboundShipmentPlanRequestItems.member.1.SellerSKU'])) {
             $this->log('Items must be set in order to make a plan', 'Warning');
 
             return false;

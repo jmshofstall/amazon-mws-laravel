@@ -82,17 +82,17 @@ class AmazonFulfillmentPreview extends AmazonOutboundCore
         $this->resetAddress();
         $this->options['Address.Name'] = $a['Name'];
         $this->options['Address.Line1'] = $a['Line1'];
-        if (property_exists($a, 'Line2')) {
+        if (isset($a['Line2'])) {
             $this->options['Address.Line2'] = $a['Line2'];
         } else {
             $this->options['Address.Line2'] = null;
         }
-        if (property_exists($a, 'Line3')) {
+        if (isset($a['Line3'])) {
             $this->options['Address.Line3'] = $a['Line3'];
         } else {
             $this->options['Address.Line3'] = null;
         }
-        if (property_exists($a, 'DistrictOrCounty')) {
+        if (isset($a['DistrictOrCounty'])) {
             $this->options['Address.DistrictOrCounty'] = $a['DistrictOrCounty'];
         } else {
             $this->options['Address.DistrictOrCounty'] = null;
@@ -101,7 +101,7 @@ class AmazonFulfillmentPreview extends AmazonOutboundCore
         $this->options['Address.StateOrProvinceCode'] = $a['StateOrProvinceCode'];
         $this->options['Address.CountryCode'] = $a['CountryCode'];
         $this->options['Address.PostalCode'] = $a['PostalCode'];
-        if (property_exists($a, 'PhoneNumber')) {
+        if (isset($a['PhoneNumber'])) {
             $this->options['Address.PhoneNumber'] = $a['PhoneNumber'];
         } else {
             $this->options['Address.PhoneNumber'] = null;
@@ -154,7 +154,7 @@ class AmazonFulfillmentPreview extends AmazonOutboundCore
         $this->resetItems();
         $i = 1;
         foreach ($a as $x) {
-            if (is_array($x) && property_exists($x, 'SellerSKU') && property_exists($x, 'SellerFulfillmentOrderItemId') && property_exists($x, 'Quantity')
+            if (is_array($x) && isset($x['SellerSKU']) && isset($x['SellerFulfillmentOrderItemId']) && isset($x['Quantity'])
             ) {
                 $this->options['Items.member.'.$i.'.SellerSKU'] = $x['SellerSKU'];
                 $this->options['Items.member.'.$i.'.SellerFulfillmentOrderItemId'] = $x['SellerFulfillmentOrderItemId'];
@@ -241,12 +241,12 @@ class AmazonFulfillmentPreview extends AmazonOutboundCore
      */
     public function fetchPreview()
     {
-        if (! property_exists($this->options, 'Address.Name')) {
+        if (! isset($this->options['Address.Name'])) {
             $this->log('Address must be set in order to create a preview', 'Warning');
 
             return false;
         }
-        if (! property_exists($this->options, 'Items.member.1.SellerSKU')) {
+        if (! isset($this->options['Items.member.1.SellerSKU'])) {
             $this->log('Items must be set in order to create a preview', 'Warning');
 
             return false;

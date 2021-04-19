@@ -255,7 +255,7 @@ class AmazonFeed extends AmazonFeedsCore
 
             return false;
         }
-        if (! property_exists($this->options, 'FeedType')) {
+        if (! isset($this->options['FeedType'])) {
             $this->log('Feed Type must be set in order to submit a feed!', 'Warning');
 
             return false;
@@ -345,7 +345,7 @@ class AmazonFeed extends AmazonFeedsCore
             return false;
         }
         //for dealing with 100 response
-        if (property_exists($r, 'error') && $r['ok'] == 0) {
+        if (isset($r['error']) && $r['ok'] == 0) {
             $this->log('Response Not OK! Error: '.$r['error'], 'Urgent');
 
             return false;

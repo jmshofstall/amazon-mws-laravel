@@ -86,7 +86,7 @@ class AmazonFulfillmentOrder extends AmazonOutboundCore
      */
     public function fetchOrder()
     {
-        if (! property_exists($this->options, 'SellerFulfillmentOrderId')) {
+        if (! isset($this->options['SellerFulfillmentOrderId'])) {
             $this->log('Fulfillment Order ID must be set in order to fetch it!', 'Warning');
 
             return false;
@@ -270,7 +270,7 @@ class AmazonFulfillmentOrder extends AmazonOutboundCore
      */
     public function cancelOrder()
     {
-        if (! property_exists($this->options, 'SellerFulfillmentOrderId')) {
+        if (! isset($this->options['SellerFulfillmentOrderId'])) {
             $this->log('Fulfillment Order ID must be set in order to cancel it!', 'Warning');
 
             return false;

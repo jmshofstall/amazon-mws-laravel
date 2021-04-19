@@ -651,17 +651,17 @@ class AmazonTransport extends AmazonInboundCore
     {
         $m = ' must be set in order to send transport content!';
         //common requirements
-        if (! property_exists($this->options, 'ShipmentId')) {
+        if (! isset($this->options['ShipmentId'])) {
             $this->log('Shipment ID'.$m, 'Warning');
 
             return false;
         }
-        if (! property_exists($this->options, 'IsPartnered')) {
+        if (! isset($this->options['IsPartnered'])) {
             $this->log('IsPartnered'.$m, 'Warning');
 
             return false;
         }
-        if (! property_exists($this->options, 'ShipmentType')) {
+        if (! isset($this->options['ShipmentType'])) {
             $this->log('Shipment type'.$m, 'Warning');
 
             return false;
@@ -745,7 +745,7 @@ class AmazonTransport extends AmazonInboundCore
      */
     public function fetchTransportContent()
     {
-        if (! property_exists($this->options, 'ShipmentId')) {
+        if (! isset($this->options['ShipmentId'])) {
             $this->log('Shipment ID must be set in order to get transport contents!', 'Warning');
 
             return false;
@@ -801,7 +801,7 @@ class AmazonTransport extends AmazonInboundCore
      */
     public function estimateTransport()
     {
-        if (! property_exists($this->options, 'ShipmentId')) {
+        if (! isset($this->options['ShipmentId'])) {
             $this->log('Shipment ID must be set in order to estimate the transport request!', 'Warning');
 
             return false;
@@ -857,7 +857,7 @@ class AmazonTransport extends AmazonInboundCore
      */
     public function confirmTransport()
     {
-        if (! property_exists($this->options, 'ShipmentId')) {
+        if (! isset($this->options['ShipmentId'])) {
             $this->log('Shipment ID must be set in order to confirm the transport request!', 'Warning');
 
             return false;
@@ -913,7 +913,7 @@ class AmazonTransport extends AmazonInboundCore
      */
     public function voidTransport()
     {
-        if (! property_exists($this->options, 'ShipmentId')) {
+        if (! isset($this->options['ShipmentId'])) {
             $this->log('Shipment ID must be set in order to void the transport request!', 'Warning');
 
             return false;
