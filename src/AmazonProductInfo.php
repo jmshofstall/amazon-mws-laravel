@@ -112,6 +112,7 @@ class AmazonProductInfo extends AmazonProductsCore
             $this->resetSKUs();
             $this->resetASINs();
             $this->options['ASINList.ASIN.1'] = $s;
+            $this->options['ASIN'] = $s;
         } else {
             if (is_array($s)) {
                 $this->resetSKUs();
